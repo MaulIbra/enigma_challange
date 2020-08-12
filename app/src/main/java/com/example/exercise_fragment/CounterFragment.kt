@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_counter.*
+import kotlinx.android.synthetic.main.fragment_counter.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -24,13 +25,10 @@ class CounterFragment : Fragment(),View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_counter, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        increment.setOnClickListener(this)
-        decrement.setOnClickListener(this)
+        val view = inflater.inflate(R.layout.fragment_counter, container, false)
+        view.increment.setOnClickListener(this)
+        view.decrement.setOnClickListener(this)
+        return view
     }
 
     override fun onClick(view: View?) {
